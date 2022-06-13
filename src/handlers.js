@@ -94,7 +94,9 @@ const getAllBooksHandler = (request, h) => {
     });
     response.code(200);
     return response;
-  } if (reading) {
+  }
+
+  if (reading) {
     const bookFilter = books.filter((book) => Number(book.reading) === Number(reading));
     const response = h.response({
       status: 'success',
@@ -108,7 +110,9 @@ const getAllBooksHandler = (request, h) => {
     });
     response.code(200);
     return response;
-  } if (finished) {
+  }
+
+  if (finished) {
     const bookFilter = books.filter((book) => Number(book.finished) === Number(finished));
     const response = h.response({
       status: 'success',
@@ -123,6 +127,7 @@ const getAllBooksHandler = (request, h) => {
     response.code(200);
     return response;
   }
+
   const response = h.response({
     status: 'success',
     data: {
